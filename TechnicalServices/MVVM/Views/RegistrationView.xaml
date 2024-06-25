@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             x:Class="TechnicalServices.MVVM.Views.RegistrationView"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             NavigationPage.HasNavigationBar="false"
+             x:DataType="viewmodel:RegistrationViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+        
+        <Frame Grid.Row="1"
+               Background="{StaticResource Primary}"
+               CornerRadius="5"
+               WidthRequest="300"
+               Padding="8">
+
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   CornerRadius="5"
+                   Padding="8">
+                   
+                <VerticalStackLayout>
+
+                    <Label Text="{Static lang:AppResources.FirstName}"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                                  
+                     <Entry BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                            Text="{Binding FirstName}"/>
+                    
+                     <Label Text="{Static lang:AppResources.LastName}"
+                            Margin="0,10,0,0"
+                            FontSize="Medium"
+                            FontAttributes="Bold"/>
+                            
+                    <Entry BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Text="{Binding LastName}"/>
+
+                    <Label Text="{Static lang:AppResources.PhoneNumber}"
+                           Margin="0,10,0,0"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+
+                    <Entry Placeholder="+963"
+                           PlaceholderColor="{AppThemeBinding Dark={StaticResource Gray300}, Light={StaticResource Gray500}}"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Keyboard="Telephone"
+                           Text="{Binding PhoneNumber}"/>
+                    
+                    <Label Text="{Static lang:AppResources.Email}"
+                           Margin="0,10,0,0"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                           
+                    <Entry Placeholder="ExampEmail@gmail.com"
+                           PlaceholderColor="{AppThemeBinding Dark={StaticResource Gray300}, Light={StaticResource Gray500}}"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Keyboard="Email"
+                           Text="{Binding Email}"/>
+
+                    <HorizontalStackLayout Margin="0,10,0,0">
+
+                        <CheckBox IsChecked="{Binding IsTech}"/>
+                                    
+                        <Label Text="{Static lang:AppResources.TechnicianAccount}"
+                               Margin="0,10,0,0"/>
+                              
+                    </HorizontalStackLayout>
+
+                    <Button Text="{Static lang:AppResources.Continue}"
+                            WidthRequest="100"
+                            Margin="10"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                            Command="{Binding ContinueCommand}"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </Frame>
+
+        <ActivityIndicator  IsEnabled="{Binding IsBesy}"
+                            IsVisible="{Binding IsBesy}"
+                            IsRunning="{Binding IsBesy}"
+                            WidthRequest="100"
+                            Color="{StaticResource Primary}"
+                            Grid.Column="0"
+                            Grid.RowSpan="3"/>
+                            
+    </Grid>
+    
+</ContentPage>

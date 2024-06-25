@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.OrderResponsesView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             xmlns:model="clr-namespace:TechnicalServices.Models"
+             x:DataType="viewmodel:OrderResponsesViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <CollectionView ItemsSource="{Binding Responses}">
+        
+        <CollectionView.ItemTemplate>
+            
+            <DataTemplate x:DataType="model:Response">
+
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                       Margin="5">
+
+                    <Frame.GestureRecognizers>
+
+                        <TapGestureRecognizer  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:OrderResponsesViewModel}},Path=GoToResponsesDetailsCommand}"
+                                               CommandParameter="{Binding .}"/>
+                        
+                    </Frame.GestureRecognizers>
+                    
+                    <Grid>
+                        
+                        <Grid.RowDefinitions>
+                            
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Text="{Static lang:AppResources.Time}"
+                               FontSize="17"
+                               Grid.Row="0"
+                               Grid.Column="0"/>
+                        
+                        <Label Text="{Binding time}"
+                               FontAttributes="Bold"
+                               FontSize="17"
+                               Margin="4,0"
+                               Grid.Row="0"
+                               Grid.Column="1"/>
+
+                        <Label Text="{Static lang:AppResources.EsttimatidTime}"
+                               FontSize="17"
+                               Grid.Row="1"
+                               Grid.Column="0"/>
+
+                        <HorizontalStackLayout Margin="4,0"
+                                               Grid.Row="1"
+                                               Grid.Column="1">
+
+                            <Label Text="{Binding EstimatedTime}"
+                                   FontAttributes="Bold"
+                                   FontSize="13"/>
+
+                            <Label Text="{Static lang:AppResources.Hour}"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                        <Label Text="{Static lang:AppResources.EstimatidPrice}"
+                               FontSize="13"
+                               Grid.Row="2"
+                               Grid.Column="0"/>    
+
+                        <HorizontalStackLayout Margin="4,0"
+                                               Grid.Row="2"
+                                               Grid.Column="1">
+
+                            <Label Text="{Binding EstimatedPrice}"
+                                   FontAttributes="Bold"
+                                   FontSize="13"/>      
+
+                            <Label Text="SP"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                    </Grid>
+                    
+                </Frame>
+                
+            </DataTemplate>
+            
+        </CollectionView.ItemTemplate>
+        
+    </CollectionView>
+    
+</ContentPage>

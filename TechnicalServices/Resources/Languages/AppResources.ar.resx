@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A101" xml:space="preserve">
+    <value>يجب ان تسجل دخولك لارسال طلب</value>
+  </data>
+  <data name="A102" xml:space="preserve">
+    <value>لم يتم الموافقة على صلاحيات الوصول</value>
+  </data>
+  <data name="A103" xml:space="preserve">
+    <value>هذا الطلب تم تحديده كمنتهي من قبل الفني هل توافق على هذا</value>
+  </data>
+  <data name="A104" xml:space="preserve">
+    <value>هل تريد اضافة مراجعة للطلب سوف يستغرق هذا دقيقة واحدة لكنه مهم جدا</value>
+  </data>
+  <data name="A105" xml:space="preserve">
+    <value>سيتم تحويل الطلب ليتم مراجعته من قبل مسؤل هل تريد المتابعة </value>
+  </data>
+  <data name="A106" xml:space="preserve">
+    <value>لا يمكنك مشاهدة بيانات الفني الى بعد اختيار رد</value>
+  </data>
+  <data name="A107" xml:space="preserve">
+    <value>هل انت متاكد من رغبتك في الغاء هذا الطلب سيتم خصم تكلفة الغاء طلب من حسابك</value>
+  </data>
+  <data name="A108" xml:space="preserve">
+    <value>لقد قمت باختيار رد لهذا الطلب</value>
+  </data>
+  <data name="A109" xml:space="preserve">
+    <value>هل تود اختيار هذا الرد للطلب</value>
+  </data>
+  <data name="A110" xml:space="preserve">
+    <value>هل تريدتحديد هذا الطلب كمنتهي سيحتاج الستخدم للتاكيد ايضا</value>
+  </data>
+  <data name="accountactivation" xml:space="preserve">
+    <value>تفعيل حساب</value>
+  </data>
+  <data name="AddResponce" xml:space="preserve">
+    <value>اضافة رد</value>
+  </data>
+  <data name="Airconditioninginstallations" xml:space="preserve">
+    <value>تركيب اجهزة تكييف</value>
+  </data>
+  <data name="AirconditioningMaintenance" xml:space="preserve">
+    <value>صيانة اجهزة تكييف</value>
+  </data>
+  <data name="Alert" xml:space="preserve">
+    <value>تحذير</value>
+  </data>
+  <data name="Aluminum" xml:space="preserve">
+    <value>الألومينيوم</value>
+  </data>
+  <data name="Ammount" xml:space="preserve">
+    <value>الكمية:</value>
+  </data>
+  <data name="aresponsehasbeenchosen" xml:space="preserve">
+    <value>تم اختيار رد للطلب</value>
+  </data>
+  <data name="Ariconditioningextensions" xml:space="preserve">
+    <value>تركيب تمديدات اجهزة التكييف</value>
+  </data>
+  <data name="canceledbytheTechnican" xml:space="preserve">
+    <value>ملغى من فبل الفني</value>
+  </data>
+  <data name="Cancelorderfee" xml:space="preserve">
+    <value>الغاء طلب</value>
+  </data>
+  <data name="Carpentry" xml:space="preserve">
+    <value>نجارة</value>
+  </data>
+  <data name="Ceiling" xml:space="preserve">
+    <value>اسقف</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>تغيير كلمة المرور</value>
+  </data>
+  <data name="ChooseThiResponse" xml:space="preserve">
+    <value>اختار هذا الرد</value>
+  </data>
+  <data name="ChooseTime" xml:space="preserve">
+    <value>اختار وقت:</value>
+  </data>
+  <data name="ChoseDate" xml:space="preserve">
+    <value>اختار التاريخ:</value>
+  </data>
+  <data name="CleanWaterInstallation" xml:space="preserve">
+    <value>تركيب تمديدات مياه شرب</value>
+  </data>
+  <data name="CleanWaterInstallationMaintenance" xml:space="preserve">
+    <value>صيانة تمديدات مياه شرب</value>
+  </data>
+  <data name="CompanyAccount" xml:space="preserve">
+    <value>حساب شركة</value>
+  </data>
+  <data name="Conditioningandcooling" xml:space="preserve">
+    <value>اجهزة تكييف وتبريد </value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تاكيد كلمة المرور</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>المتابعة</value>
+  </data>
+  <data name="CoolingMaintenance" xml:space="preserve">
+    <value>صيانة اجهزة تبريد</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="Decor" xml:space="preserve">
+    <value>ديكور</value>
+  </data>
+  <data name="Decorationconsultation" xml:space="preserve">
+    <value>استشارة خبير</value>
+  </data>
+  <data name="DeletedbytheUser" xml:space="preserve">
+    <value>محذوف من قبل المستخدم</value>
+  </data>
+  <data name="DeleteOreder" xml:space="preserve">
+    <value>حذف الطلب</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الشرح:</value>
+  </data>
+  <data name="E101" xml:space="preserve">
+    <value>لقد تركت حقل فارغ</value>
+  </data>
+  <data name="E102" xml:space="preserve">
+    <value>صيغة الحساب غير صحيحة</value>
+  </data>
+  <data name="E103" xml:space="preserve">
+    <value>لقد ادخلت كلمة مرور او حساب خاطئ</value>
+  </data>
+  <data name="E104" xml:space="preserve">
+    <value>حسابك مغلق</value>
+  </data>
+  <data name="E105" xml:space="preserve">
+    <value>لا يتوفر اتصال بالانترنت</value>
+  </data>
+  <data name="E106" xml:space="preserve">
+    <value>خطأ غير معروف تاكد من وصولك للانترنت واعد المحاولة</value>
+  </data>
+  <data name="E107" xml:space="preserve">
+    <value>الوقت التقريبي يجب ان يكون اقل من 8</value>
+  </data>
+  <data name="E108" xml:space="preserve">
+    <value>رمز التحقق خاطئ</value>
+  </data>
+  <data name="E109" xml:space="preserve">
+    <value>لقد ادخلت كلمة مرور مرفوضة</value>
+  </data>
+  <data name="E110" xml:space="preserve">
+    <value>كلمة المرور لا تطابق تاكيد كلمة المرور</value>
+  </data>
+  <data name="E111" xml:space="preserve">
+    <value>الحساب المدخل غير مسجل</value>
+  </data>
+  <data name="E112" xml:space="preserve">
+    <value>@gmail.com الحساب المدخل مرفوض يجب ان يحتوي الحساب على</value>
+  </data>
+  <data name="E113" xml:space="preserve">
+    <value>اسم المستخدم المدخل تم استخدامه مسبقا</value>
+  </data>
+  <data name="E114" xml:space="preserve">
+    <value>اسم المستخدم مرفوض</value>
+  </data>
+  <data name="E115" xml:space="preserve">
+    <value>الرقم الوطني تم استخدامه مسبقا</value>
+  </data>
+  <data name="E116" xml:space="preserve">
+    <value>الرقم الوطني مرفوض</value>
+  </data>
+  <data name="E117" xml:space="preserve">
+    <value>رقم الهاتف تم استخدامه مسبقا</value>
+  </data>
+  <data name="E118" xml:space="preserve">
+    <value>الحساب تم استخدامه مسبقا</value>
+  </data>
+  <data name="E119" xml:space="preserve">
+    <value>رقم الهاتف مرفوض</value>
+  </data>
+  <data name="E120" xml:space="preserve">
+    <value>لا يمكنك اضافة طلب في الوقت الحالي هذا بسبب وجود عدة طلبات غير منتهية او رصيد الحساب منخفض</value>
+  </data>
+  <data name="Electrical" xml:space="preserve">
+    <value>كهرباء</value>
+  </data>
+  <data name="Electricalinstallations" xml:space="preserve">
+    <value>تركيبات كهربائية</value>
+  </data>
+  <data name="ElectricalMaintenance" xml:space="preserve">
+    <value>صيانة اجهزة كهربائية</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الحساب:</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>خطأ</value>
+  </data>
+  <data name="EstimatidPrice" xml:space="preserve">
+    <value>السعر التقريبي:</value>
+  </data>
+  <data name="EsttimatidTime" xml:space="preserve">
+    <value>الوقت التقريبي:</value>
+  </data>
+  <data name="ExpereancLevel" xml:space="preserve">
+    <value>مستوى الخبرة:</value>
+  </data>
+  <data name="Externalinstallations" xml:space="preserve">
+    <value>تمديدات خارجية</value>
+  </data>
+  <data name="FeedBackmassege" xml:space="preserve">
+    <value>نص المراجعة:</value>
+  </data>
+  <data name="FinishedBytheTechnician" xml:space="preserve">
+    <value>تم انهاء الطلب من قبل الفني</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>الاسم الاول:</value>
+  </data>
+  <data name="Flooring" xml:space="preserve">
+    <value>ارضيات</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>نسيت كلمة المرور</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم الكامل:</value>
+  </data>
+  <data name="Homeappliancesmaintenance" xml:space="preserve">
+    <value>صيانة اجهزة منزلية</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>ساعة</value>
+  </data>
+  <data name="IHaveRead" xml:space="preserve">
+    <value>لقد قرات و وافقت على صلاحيات الوصول</value>
+  </data>
+  <data name="Internalinstallations" xml:space="preserve">
+    <value>تمديدات داخلية</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>الكنية:</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="M101" xml:space="preserve">
+    <value>مرحبا بك لتطبيقنا للخدمات الفنية</value>
+  </data>
+  <data name="M102" xml:space="preserve">
+    <value>هذا البرنامج يسمح لك بطلب خدمة تحتاجها وشخص سيساعدك</value>
+  </data>
+  <data name="MarkAsFinished" xml:space="preserve">
+    <value>تحديد كمنتهي</value>
+  </data>
+  <data name="MarkAsRead" xml:space="preserve">
+    <value>تحديد كمقروء</value>
+  </data>
+  <data name="MyOrders" xml:space="preserve">
+    <value>الطلبات المستلمة</value>
+  </data>
+  <data name="MyRatings" xml:space="preserve">
+    <value>تقيماتي</value>
+  </data>
+  <data name="MyServices" xml:space="preserve">
+    <value>خدماتي</value>
+  </data>
+  <data name="NetworkinstallationsMaintenance" xml:space="preserve">
+    <value>تجهيزات شبكية</value>
+  </data>
+  <data name="NewOrders" xml:space="preserve">
+    <value>الطلبات الجديدة</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="orderfee" xml:space="preserve">
+    <value>اضافة طلب</value>
+  </data>
+  <data name="OrderIsinadministrationreview" xml:space="preserve">
+    <value>الطلب تحت مراجعة الادارة</value>
+  </data>
+  <data name="OrderLocation" xml:space="preserve">
+    <value>مكان الطلب</value>
+  </data>
+  <data name="OrderNumber" xml:space="preserve">
+    <value>رقم الطلب:</value>
+  </data>
+  <data name="OrderResponses" xml:space="preserve">
+    <value>ردود الطلب</value>
+  </data>
+  <data name="OrderStatus" xml:space="preserve">
+    <value>حالة الطلب:</value>
+  </data>
+  <data name="Painting" xml:space="preserve">
+    <value>طلاء</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور:</value>
+  </data>
+  <data name="PaymentDescriptopn" xml:space="preserve">
+    <value>شرح عملية الدفع:</value>
+  </data>
+  <data name="PaymentType" xml:space="preserve">
+    <value>نوع عملية الدفع:</value>
+  </data>
+  <data name="Phonemaintenance" xml:space="preserve">
+    <value>صيانة هاتف ارضي</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف:</value>
+  </data>
+  <data name="Pricing" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>الجودة</value>
+  </data>
+  <data name="ResendCode" xml:space="preserve">
+    <value>اعادة ارسال الرمز</value>
+  </data>
+  <data name="S101" xml:space="preserve">
+    <value>تمت اضافة طلبك بنجاح</value>
+  </data>
+  <data name="S102" xml:space="preserve">
+    <value>تمت اضافة ردك بنجاج</value>
+  </data>
+  <data name="S103" xml:space="preserve">
+    <value>تمت اضافة تقيماتك بنجاح</value>
+  </data>
+  <data name="S104" xml:space="preserve">
+    <value>تم تغبر كلمة المرور</value>
+  </data>
+  <data name="S105" xml:space="preserve">
+    <value>تم انشاء حسابك بنجاح</value>
+  </data>
+  <data name="S106" xml:space="preserve">
+    <value>تم انهاء الطلب بنجاح</value>
+  </data>
+  <data name="S107" xml:space="preserve">
+    <value>هذا الطلب تحت مراجعة مسؤل من الممكت ان يستغرق هذا يوم او يومين</value>
+  </data>
+  <data name="S108" xml:space="preserve">
+    <value>تم حذف طلبك بنجاح</value>
+  </data>
+  <data name="S109" xml:space="preserve">
+    <value>تم اختيار  الرد بنجاح</value>
+  </data>
+  <data name="S110" xml:space="preserve">
+    <value>تم تغيير حالو الطلب بنجاح</value>
+  </data>
+  <data name="SateliteequipmentMaintenance" xml:space="preserve">
+    <value>صيانة اجهزة استقبال</value>
+  </data>
+  <data name="SecurityDevicesinstallations" xml:space="preserve">
+    <value>تركيب اجهزة حماية</value>
+  </data>
+  <data name="SecurityDevicesMaintenance" xml:space="preserve">
+    <value>صيانة اجهزة حماية</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>الخدمة:</value>
+  </data>
+  <data name="SewerWaterInstallation" xml:space="preserve">
+    <value>تركيب تمديدات مياه مالحة</value>
+  </data>
+  <data name="SewerWaterInstallationMaintenance" xml:space="preserve">
+    <value>صيانة تمديدات مياه مالحة</value>
+  </data>
+  <data name="SSN" xml:space="preserve">
+    <value>الرقم الوطني:</value>
+  </data>
+  <data name="Successfully" xml:space="preserve">
+    <value>نجاح</value>
+  </data>
+  <data name="TechnicianAccount" xml:space="preserve">
+    <value>حساب فني</value>
+  </data>
+  <data name="TechnicianDetails" xml:space="preserve">
+    <value>بيانات الفني</value>
+  </data>
+  <data name="TechnicianExperienceLevel" xml:space="preserve">
+    <value>مستوى خبرة الفني:</value>
+  </data>
+  <data name="TechnicianPhoneNumber" xml:space="preserve">
+    <value>رقم الهاتف للفني:</value>
+  </data>
+  <data name="TechnicianRatings" xml:space="preserve">
+    <value>تقيمات الفني:</value>
+  </data>
+  <data name="TechnicianUserName" xml:space="preserve">
+    <value>اسم المستخدم للفني:</value>
+  </data>
+  <data name="theorderisfinished" xml:space="preserve">
+    <value>تم انهاء الطلب</value>
+  </data>
+  <data name="theRequestsentsuccessfully" xml:space="preserve">
+    <value>تم ارسال الطلب بنجاح</value>
+  </data>
+  <data name="theuserissatisfied" xml:space="preserve">
+    <value>تم انهاء الطلب من قبل المستخدم</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>الوقت:</value>
+  </data>
+  <data name="Timing" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="TryToExplain" xml:space="preserve">
+    <value>حاول ان تشرح المشكلة بافضل طريقة للحصول على افضل الردود</value>
+  </data>
+  <data name="Unknownproblem" xml:space="preserve">
+    <value>مشكلة غير معروفة</value>
+  </data>
+  <data name="Unknownproplem" xml:space="preserve">
+    <value>مشكلة غير معروفة</value>
+  </data>
+  <data name="UserBalance" xml:space="preserve">
+    <value>رصيد المستخدم:</value>
+  </data>
+  <data name="UserIncomes" xml:space="preserve">
+    <value>الواردات</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="UserPayments" xml:space="preserve">
+    <value>المدفوعات</value>
+  </data>
+  <data name="UserPhoneNumber" xml:space="preserve">
+    <value>رقم هاتف المستخدم</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>كود التفعيل:</value>
+  </data>
+  <data name="Visitor" xml:space="preserve">
+    <value>زائر</value>
+  </data>
+  <data name="WashingmachineMaintenance" xml:space="preserve">
+    <value>صيانة غسالة</value>
+  </data>
+  <data name="WaterAccessoriesInstallation" xml:space="preserve">
+    <value> تركيب اكسسوارات</value>
+  </data>
+  <data name="Waterinstallationmaintenance" xml:space="preserve">
+    <value>صيانة تمديدات مياه</value>
+  </data>
+  <data name="WeHaveSend" xml:space="preserve">
+    <value>لقد تم ارسال رسالة تاكيد للحساب المدخل سابقا</value>
+  </data>
+  <data name="Wood" xml:space="preserve">
+    <value>خشبيات</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="YouDontHaveAnAccount" xml:space="preserve">
+    <value>ليس لديك حساب</value>
+  </data>
+</root>

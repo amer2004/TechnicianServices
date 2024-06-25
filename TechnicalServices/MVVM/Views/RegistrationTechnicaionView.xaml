@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.RegistrarionTechnicaionView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             xmlns:model="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             x:DataType="model:RegistrarionTechnicaionViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}">
+
+         <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+             
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="*"/>
+          
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Row="1"
+               Background="{StaticResource Primary}"
+               CornerRadius="5"
+               WidthRequest="300"
+               Padding="9">
+
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   CornerRadius="5"
+                   Padding="4">
+                
+                <VerticalStackLayout>
+                    
+                    <Label Text="{Static lang:AppResources.SSN}"
+                           Margin="5,10,0,0"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+                           
+                    <Entry Placeholder=""
+                           PlaceholderColor="{AppThemeBinding Dark={StaticResource Gray300}, Light={StaticResource Gray500}}"
+                           BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Keyboard="Numeric"
+                           Text="{Binding SSN}"/>
+                            
+                    <Label Text="{Static lang:AppResources.UserName}"
+                           Margin="5,10,0,0"
+                           FontSize="Medium"
+                           FontAttributes="Bold"/>
+
+                    
+                    <Entry BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Keyboard="Text"
+                           Text="{Binding UserName}"/>
+
+                    <HorizontalStackLayout Margin="0,10">
+
+                        <CheckBox IsChecked="{Binding IsComp}"/>
+
+                        <Label Text="{Static lang:AppResources.CompanyAccount}"
+                               Margin="0,10,0,0"/>
+
+                    </HorizontalStackLayout>
+
+                    <Button Text="{Static lang:AppResources.Continue}"
+                            WidthRequest="100"
+                            Margin="10"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                            Command="{Binding ContinueCommand}"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </Frame>
+
+        <ActivityIndicator IsRunning="{Binding IsBesy}"
+                           IsEnabled="{Binding IsBesy}"
+                           Color="{StaticResource Primary}"
+                           WidthRequest="100"
+                           Grid.Row="0"
+                           Grid.RowSpan="3"/>
+                            
+    </Grid>
+
+</ContentPage>

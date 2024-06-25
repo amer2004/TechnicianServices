@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.OrderDetailsView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             x:DataType="viewmodel:OrderDetailsViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            
+        </Grid.RowDefinitions>
+
+        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+               Margin="2,10"
+               Grid.Row="0">
+
+            <VerticalStackLayout>
+
+                <Image Source="purchase_order.png"
+                       WidthRequest="100"
+                       HeightRequest="100"/>
+
+                <Grid Margin="10" 
+                      RowSpacing="10">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{Static lang:AppResources.OrderNumber}"
+                           FontSize="17"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Order.orderNumber}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Service}"
+                           FontSize="17"
+                           Grid.Row="1"/>
+
+                    <Label Text="{Binding Order.ExtendService.name}"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"/>
+
+                    <Label Text="{Static lang:AppResources.OrderStatus}"
+                           FontSize="17"
+                           Grid.Row="2"/>
+
+                    <Label Text="{Binding Order.Status.name}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Description}"
+                           FontSize="17"
+                           Grid.Row="3"/>
+
+                    <Label Text="{Binding Order.description}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="3"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Date}"
+                           FontSize="17"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Order.date}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="4"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Time}"
+                           FontSize="17"
+                           Grid.Row="5"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Order.ChosenResponse.time}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="5"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.EsttimatidTime}"
+                           FontSize="17"
+                           Grid.Row="6"
+                           Grid.Column="0"/>
+
+                    <HorizontalStackLayout Margin="4,0"
+                                           Grid.Row="6"
+                                           Grid.Column="1">
+
+                        <Label Text="{Binding Order.ChosenResponse.EstimatedTime}"
+                               FontAttributes="Bold"
+                               FontSize="13"/>
+
+                        <Label Text="{Static lang:AppResources.Hour}"
+                               Margin="4,0"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Static lang:AppResources.EstimatidPrice}"
+                           FontSize="13"
+                           Grid.Row="7"
+                           Grid.Column="0"/>
+
+                    <HorizontalStackLayout Margin="4,0"
+                                           Grid.Row="7"
+                                           Grid.Column="1">
+
+                        <Label Text="{Binding Order.ChosenResponse.EstimatedPrice}"
+                           FontAttributes="Bold"
+                           FontSize="13"/>
+
+                        <Label Text="SP"
+                               Margin="4,0"/>
+
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Static lang:AppResources.TechnicianPhoneNumber}"
+                           FontSize="13"
+                           Grid.Row="8"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Technician.User.phoneNumber}"
+                           FontAttributes="Bold"
+                           FontSize="13"
+                           Margin="4,0"
+                           Grid.Row="8"
+                           Grid.Column="1"/>
+
+                </Grid>
+
+                <Grid ColumnDefinitions="*,*">
+
+                    <Button Text="{Static lang:AppResources.TechnicianDetails}"
+                            FontAttributes="Bold"
+                            Grid.Column="0"
+                            HeightRequest="50"
+                            FontSize="15"
+                            Command="{Binding GoToTechnicianDetailsCommand}"
+                            Margin="5"/>
+
+                    <Button Text="{Static lang:AppResources.OrderLocation}"
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            HeightRequest="50"
+                            Grid.Column="1"
+                            Command="{Binding GoToOrderLocationCommand}"
+                            Margin="5"/>
+
+                </Grid>
+                
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+               Grid.Row="1">
+           
+            <Grid ColumnSpacing="10">
+                
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button Text="{Static lang:AppResources.DeleteOreder}"
+                        IsEnabled="{Binding IsNotfineshed}"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Grid.Column="0"
+                        Command="{Binding DeleteOrderCommand}"/>
+
+                <Button Text="{Static lang:AppResources.OrderResponses}"
+                        IsEnabled="{Binding IsNotfineshed}"
+                        FontAttributes="Bold"
+                        Grid.Column="1"
+                        FontSize="15"
+                        Command="{Binding GoToOrderResponsesCommand}"/>
+
+            </Grid>
+
+        </Frame>
+        
+        <ActivityIndicator   IsEnabled="{Binding IsBesy}"
+                             IsRunning="{Binding IsBesy}"
+                             VerticalOptions="Center"
+                             Grid.ColumnSpan="2"
+                             Grid.RowSpan="2"
+                             Color="{StaticResource Primary}"
+                             HorizontalOptions="Center"/>
+
+    </Grid>
+    
+</ContentPage>

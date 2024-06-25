@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.AddUserFeedBackView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             x:DataType="viewmodel:AddUserFeedBackViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <Grid ColumnDefinitions="*,auto,*"
+          RowDefinitions="*,auto,*">
+ 
+        <Frame Grid.Row="1"
+               Grid.Column="1"
+               Background="{StaticResource Primary}"
+               WidthRequest="300"
+               CornerRadius="5"
+               Padding="8">
+
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   CornerRadius="5"
+                   Padding="8">
+
+                <VerticalStackLayout>
+
+                    <Label Text="{Static lang:AppResources.FeedBackmassege}"
+                           FontSize="Header"/>
+                          
+                    <Editor BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Text="{Binding Message}"
+                           IsEnabled="{Binding IsNotBesy}"
+                            HeightRequest="100"/>
+
+                    <Button Text="{Static lang:AppResources.Continue}"
+                            Margin="10"
+                            FontSize="15"
+                            WidthRequest="100"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                            Command="{Binding ConfirmCommand}"
+                            IsEnabled="{Binding IsNotBesy}"/>
+                            
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </Frame>
+        
+        <ActivityIndicator   IsEnabled="{Binding IsBesy}"
+                             IsRunning="{Binding IsBesy}"
+                             Color="{StaticResource Primary}"
+                             WidthRequest="100"
+                             Grid.RowSpan="3"
+                             Grid.ColumnSpan="3"/>
+        
+    </Grid>
+    
+</ContentPage>

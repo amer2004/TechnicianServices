@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.NotificationDetailsView"
+             xmlns:Model="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             x:DataType="viewmodel:NotificationDetailsViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <ContentView>
+
+        <Frame BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}">
+
+             <VerticalStackLayout x:DataType="Model:NotificationDetailsViewModel">
+
+                 <Label Text="{Binding Notifcation.title}"
+                        FontSize="Title"
+                        FontAttributes="Bold"/>
+
+                 <Label Text="{Binding Notifcation.message}"
+                        FontSize="Medium"
+                        Padding="0,10,0,20"/>
+        
+                  <Label Text="{Binding Notifcation.dateTime}"
+                         HorizontalOptions="End"
+                         FontSize="Medium"
+                         FontAttributes="Bold"/>
+        
+             </VerticalStackLayout>
+          
+         </Frame>
+    
+    </ContentView>
+
+</ContentPage>

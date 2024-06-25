@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             x:Class="TechnicalServices.MVVM.Views.AddOrderResponseView"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             x:DataType="viewmodel:AddOrderResponseViewModel"
+             NavigationPage.HasNavigationBar="False"
+             IsEnabled="{Binding IsNotBesy}">
+             
+    <Grid BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}">
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Frame Grid.Row="1"
+               WidthRequest="300"
+               Background="{StaticResource Primary}"
+               CornerRadius="5"
+               Padding="8">
+
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   CornerRadius="3"
+                   Padding="8">
+
+                <VerticalStackLayout>
+
+                    <Label Text="{Static lang:AppResources.ChoseDate}"
+                           FontSize="Medium"/>
+                    
+                    <DatePicker Date="{Binding Date}"
+                                MaximumDate="{Binding MaxDate}"
+                                MinimumDate="{Binding Date}"/>
+
+                    <Label Text="{Static lang:AppResources.ChooseTime}"
+                           Margin="0,10,0,0"/>
+                    
+                    <TimePicker Time="{Binding Time}"/>
+
+                    <Grid Margin="0,10,0,0"
+                          ColumnDefinitions="auto,*,1.5*,100">
+
+                        <Label Text="{Static lang:AppResources.EsttimatidTime}"
+                               Margin="0,10"/>
+                                
+                        
+                        <Label Text="{Binding Source={x:Reference esTime},Path=Value}"
+                               Margin="5,10,0,0"
+                               Grid.Column="1"/>
+                        
+                        <Label Text="{Static lang:AppResources.Hour}"
+                               Margin="0,10,0,0"
+                               Grid.Column="2"/>
+
+                        <Stepper WidthRequest="100"
+                                 Grid.Column="3"
+                                 x:Name="esTime"
+                                 Value="{Binding ESTime}"
+                                 Increment="0.5"
+                                 Maximum="8"
+                                 Minimum="0.5"/>
+
+                    </Grid>
+                    
+                    <Label Text="{Static lang:AppResources.EstimatidPrice}"
+                           Margin="0,10,0,0"/>
+                    
+                    <Entry BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}}"
+                           Text="{Binding ESPrice}"
+                           Keyboard="Numeric"/>
+
+
+                    <Button Text="{Static lang:AppResources.Continue}"
+                            Margin="10"
+                            WidthRequest="100"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            FontAttributes="Bold"
+                            Command="{Binding ConfirmCommand}"/>
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+        </Frame>
+
+        <ActivityIndicator   IsEnabled="{Binding IsBesy}"
+                             IsRunning="{Binding IsBesy}"
+                             Grid.Row="0"
+                             Color="{StaticResource Primary}"
+                             Grid.RowSpan="3"
+                             WidthRequest="100"/>
+
+    </Grid>
+    
+</ContentPage>

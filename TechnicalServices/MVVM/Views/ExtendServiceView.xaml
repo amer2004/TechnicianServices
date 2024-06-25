@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.ExtendServiceView"
+             xmlns:ViewModel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             xmlns:Model="clr-namespace:TechnicalServices.Models"
+             x:DataType="ViewModel:ExtendServiceViewModel"
+             NavigationPage.HasNavigationBar="False"
+             IsEnabled="{Binding IsNotBesy}">
+
+    <ScrollView>
+        
+        <StackLayout>
+
+            <CollectionView ItemsSource="{Binding ExtendServices}">
+
+                <CollectionView.ItemsLayout>
+
+                    <GridItemsLayout Span="2" Orientation="Vertical"/>
+
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                
+                    <DataTemplate x:DataType="Model:ExtendService">
+
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                               Padding="10"
+                               Margin="8">
+                               
+                            <Frame.GestureRecognizers>
+
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModel:ExtendServiceViewModel}},Path=GoToAddOrderCommand}"
+                                                      CommandParameter="{Binding .}"/>
+
+                            </Frame.GestureRecognizers>
+                            
+                            <VerticalStackLayout>
+                                
+                            
+                                <Image Source="{Binding PicName}"
+                                       WidthRequest="100"
+                                       HeightRequest="100"/>
+                            
+                                <Label Text="{Binding name}"
+                                       FontSize="Header"
+                                       Margin="0,10,0,0"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"/>
+                        
+                            </VerticalStackLayout>
+                    
+                        </Frame>
+                    
+                    </DataTemplate>
+               
+                </CollectionView.ItemTemplate>
+            
+            </CollectionView>
+        
+            <ActivityIndicator  IsEnabled="{Binding IsBesy}"
+                                IsRunning="{Binding IsBesy}"
+                                VerticalOptions="Center"
+                                WidthRequest="30"
+                                Color="{StaticResource Primary}"
+                                HorizontalOptions="Center"/>
+            </StackLayout>
+        
+    </ScrollView>
+    
+</ContentPage>

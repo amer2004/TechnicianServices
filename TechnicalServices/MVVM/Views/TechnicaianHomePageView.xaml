@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="TechnicalServices.MVVM.Views.TechnicaianHomePageView"
+            xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+            xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+            xmlns:usermodel="clr-namespace:TechnicalServices.Models.User"
+            xmlns:model="clr-namespace:TechnicalServices.Models"
+            BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}"
+            BarBackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, Light={StaticResource Gray100}}"
+            SelectedTabColor="{StaticResource Primary}"
+            x:DataType="viewmodel:HomePageViewModel"
+            IsEnabled="{Binding IsNotBesy}">
+
+    <ContentPage NavigationPage.HasNavigationBar="false"
+                 IconImageSource="notification.png">
+
+        <RefreshView Command="{Binding GetNotificationCommand}"
+                     Margin="0,20"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     RefreshColor="{StaticResource Primary}">
+
+            <CollectionView ItemsSource="{Binding Notifcations}">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate x:DataType="usermodel:UserNotifcation">
+
+                        <SwipeView FlowDirection="MatchParent">
+
+                            <SwipeView.LeftItems>
+
+                                <SwipeItem Text="{Static lang:AppResources.MarkAsRead}"
+                                           BackgroundColor="Red"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomePageViewModel}},Path=MarkAsReadCommand}"
+                                           CommandParameter="{Binding .}" />
+
+                            </SwipeView.LeftItems>
+
+                            <Grid Padding="0"
+                                  Margin="4">
+
+                                <Frame  Padding="0"
+                                        CornerRadius="1">
+
+                                    <Frame.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomePageViewModel}},Path=GoToNotificationDetailsCommand}"
+                                                              CommandParameter="{Binding .}"/>
+
+                                    </Frame.GestureRecognizers>
+
+                                    <VerticalStackLayout BackgroundColor="{StaticResource Primary}">
+
+                                        <Ellipse IsVisible="{Binding status}" 
+                                                 BackgroundColor="Red"
+                                                 WidthRequest="15"
+                                                 HeightRequest="15"
+                                                 HorizontalOptions="End"/>
+
+                                        <Label Text="{Binding title}"
+                                               FontSize="Title"
+                                               Margin="10,0"/>
+
+                                        <Label Text="{Binding message}"
+                                               Margin="10,10"
+                                               FontSize="Body"
+                                               MaxLines="1"/>
+
+                                        <Label Text="{Binding dateTime}"
+                                               Margin="10,10"
+                                               FontSize="Body"
+                                               HorizontalOptions="End"/>
+
+                                    </VerticalStackLayout>
+
+                                </Frame>
+
+                            </Grid>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </RefreshView>
+
+    </ContentPage>
+
+    <ContentPage IconImageSource="tools.png"
+                 NavigationPage.HasNavigationBar="false">
+
+        <ScrollView>
+
+            <CollectionView ItemsSource="{Binding MainServices}"
+                            x:DataType="viewmodel:HomePageViewModel">
+
+                <CollectionView.ItemsLayout>
+
+                    <GridItemsLayout Span="2" Orientation="Vertical" />
+
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate x:DataType="model:MainService">
+
+                        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                               Margin="8">
+
+                            <Frame.GestureRecognizers>
+
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomePageViewModel}},Path=GoToExtendServiceCommand}"
+                                                      CommandParameter="{Binding .}"/>
+
+                            </Frame.GestureRecognizers>
+
+                            <VerticalStackLayout>
+
+                                <Image Source="{Binding PicName}"
+                                       WidthRequest="100"
+                                       HeightRequest="100"/>
+
+                                <Label Text="{Binding name}"
+                                       FontSize="Header"
+                                       Margin="0,10,0,0"
+                                       VerticalTextAlignment="End"
+                                       HorizontalTextAlignment="Center"/>
+
+                            </VerticalStackLayout>
+
+                        </Frame>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </ScrollView>
+
+    </ContentPage>
+
+    <ContentPage IconImageSource="supplier.png"
+                 NavigationPage.HasNavigationBar="False">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+                
+            </Grid.RowDefinitions>
+            
+            <RefreshView Command="{Binding GetUserOrdersCommand}"
+                         IsRefreshing="{Binding IsOrderRefreshing}"
+                         RefreshColor="{StaticResource Primary}"
+                         Grid.Row="0">
+
+                <CollectionView ItemsSource="{Binding Orders}">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate x:DataType="model:Order">
+
+                            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                                   Margin="2,10">
+
+                                <Frame.GestureRecognizers>
+
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomePageViewModel}},Path=GoToOrderDetailsCommand}"
+                                                          CommandParameter="{Binding .}"/>
+
+                                </Frame.GestureRecognizers>
+
+                                <HorizontalStackLayout>
+
+                                    <Image Source="purchase_order.png"
+                                           WidthRequest="100"
+                                           HeightRequest="100"/>
+
+                                    <Grid Margin="10">
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Static lang:AppResources.OrderNumber}"
+                                               FontSize="Caption"
+                                               Grid.Row="0"
+                                               Grid.Column="0"/>
+
+                                        <Label Text="{Binding orderNumber}"
+                                               FontAttributes="Bold"
+                                               FontSize="Caption"
+                                               Margin="4,0"
+                                               Grid.Row="0"
+                                               Grid.Column="1"/>
+
+                                        <Label Text="{Static lang:AppResources.Date}"
+                                               FontSize="Caption"
+                                               Grid.Row="1"
+                                               Grid.Column="0"/>
+
+                                        <Label Text="{Binding date}"
+                                               FontAttributes="Bold"
+                                               FontSize="Caption"
+                                               Margin="4,0"
+                                               Grid.Row="1"
+                                               Grid.Column="1"/>
+
+                                        <Label Text="{Static lang:AppResources.Service}"
+                                               FontSize="Caption"
+                                               Grid.Row="2"/>
+
+                                        <Label Text="{Binding ExtendService.name}"
+                                               Grid.Row="2"
+                                               Grid.Column="1"
+                                               FontAttributes="Bold"
+                                               FontSize="Caption"
+                                               Margin="4,0"/>
+                                               
+                                    </Grid>
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </RefreshView>
+            
+            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                   Grid.Row="1"
+                   CornerRadius="0"
+                   BorderColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
+
+                <Grid ColumnSpacing="15">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Text="{Static lang:AppResources.MyOrders}"
+                            FontAttributes="Bold"
+                            IsEnabled="{Binding IsActive}"
+                            HeightRequest="50"
+                            Grid.Column="0"
+                            Command="{Binding GoToMyOrdersCommand}"/>
+
+                    <Button Text="{Static lang:AppResources.NewOrders}"
+                            FontAttributes="Bold"
+                            HeightRequest="50"
+                            IsEnabled="{Binding IsActive}"
+                            Grid.Column="1"
+                            Command="{Binding GoToNewOrdersCommand}"/>
+
+                </Grid>
+
+            </Frame>
+            
+        </Grid>
+        
+    </ContentPage>
+
+    <ContentPage IconImageSource="tableofcontent.png"
+                 NavigationPage.HasNavigationBar="False">
+
+        <ScrollView>
+
+            <Grid RowSpacing="1">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Image Source="profile.png"
+                       HeightRequest="100"
+                       Grid.Row="0"/>
+
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                       Grid.Row="1"
+                       Margin="0,10,0,0">
+
+                    <VerticalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.FullName}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding User.firstName}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                            <Label Text="{Binding User.lastName}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.Email}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding User.email}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.PhoneNumber}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding User.phoneNumber }"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.UserBalance}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding User.balance}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                            <Label Text="SP"
+                                   FontSize="17"/>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.UserName}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding Technician.userName}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Margin="10">
+
+                            <Label Text="{Static lang:AppResources.ExpereancLevel}"
+                                   FontSize="17"/>
+
+                            <Label Text="{Binding Technician.experienceLevel}"
+                                   FontAttributes="Bold"
+                                   FontSize="17"
+                                   Margin="4,0"/>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                       Grid.Row="2"
+                       Margin="2">
+
+                    <Grid ColumnDefinitions="*,*">
+
+                        <Button Text="{Static lang:AppResources.MyRatings}"
+                                FontSize="15"
+                                Command="{Binding GoToTechnicianRatingsCommand}"
+                                FontAttributes="Bold"
+                                Margin="4"
+                                Grid.Column="0"/>
+
+                        <Button Text="{Static lang:AppResources.MyServices}"
+                                FontSize="15"
+                                Command="{Binding GoToTechnicianServicesCommand}"
+                                Margin="4"
+                                FontAttributes="Bold"
+                                Grid.Column="1"/>
+
+                    </Grid>
+
+                </Frame>
+
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                       Grid.Row="3"
+                       Margin="2">
+
+                    <Grid ColumnDefinitions="*,*">
+
+                        <Button Text="{Static lang:AppResources.UserIncomes}"
+                                Command="{Binding GoToUserIncomesCommand}"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                Margin="4"
+                                Grid.Column="0"/>
+
+                        <Button Text="{Static lang:AppResources.UserPayments}"
+                                Command="{Binding GoToUserPaymentsCommand}"
+                                FontSize="15"
+                                Margin="4"
+                                FontAttributes="Bold"
+                                Grid.Column="1"/>
+
+                    </Grid>
+
+                </Frame>
+
+                <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                       Grid.Row="4"
+                       Margin="2">
+
+                    <Grid ColumnDefinitions="*,*">
+
+                        <Button Text="{Static lang:AppResources.Logout}"
+                                Command="{Binding LogOutCommand}"
+                                FontSize="15"
+                                Margin="4"
+                                FontAttributes="Bold"
+                                Grid.Column="0"/>
+
+                        <Button Text="{Static lang:AppResources.ChangePassword}"
+                                Command="{Binding GoToChangePasswordCommand}"
+                                FontSize="15"
+                                Margin="4"
+                                FontAttributes="Bold"
+                                Grid.Column="1"/>
+
+                    </Grid>
+
+                </Frame>
+
+            </Grid>
+
+        </ScrollView>
+
+    </ContentPage>
+
+</TabbedPage>

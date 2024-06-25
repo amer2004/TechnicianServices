@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.TechnicianDetailsView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:model="clr-namespace:TechnicalServices.Models.Technician"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             x:DataType="viewmodel:TechnicianDetailsViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid RowSpacing="10"
+              Grid.Row="0"
+              Margin="8">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            
+            <Image Source="profile.png"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="0"
+                   HeightRequest="100"/>
+
+            <Label Text="{Static lang:AppResources.FullName}"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            
+            <HorizontalStackLayout Grid.Row="1"
+                                   Grid.Column="1">
+                
+                <Label Text="{Binding Technician.User.firstName}"
+                       FontSize="17"
+                       Margin="4,0"/>
+
+                <Label Text=" "/>
+
+                <Label Text="{Binding Technician.User.lastName}"
+                       FontSize="17"/>
+                
+            </HorizontalStackLayout>
+            
+            <Label Text="{Static lang:AppResources.PhoneNumber}"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+
+            <Label Text="{Binding Technician.User.phoneNumber}"
+                   FontSize="17"
+                   Margin="4,0"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+
+            <Label Text="{Static lang:AppResources.UserName}"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   Grid.Row="3"
+                   Grid.Column="0"/>
+            
+            <Label Text="{Binding Technician.userName}"
+                   FontSize="17"
+                   Margin="4,0"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+
+            <Label Text="{Static lang:AppResources.ExpereancLevel}"
+                   FontSize="13"
+                   FontAttributes="Bold"
+                   Grid.Row="4"
+                   Grid.Column="0"/>
+            
+            <Label Text="{Binding Technician.experienceLevel}"
+                   FontSize="17"
+                   Margin="4,0"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+
+        </Grid>
+
+        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+               Grid.Row="1">
+
+            <VerticalStackLayout>
+
+                <Label Text="{Static lang:AppResources.TechnicianRatings}"
+                       TextColor="{StaticResource Primary}"
+                       FontSize="17"
+                       Grid.Row="1"
+                       Margin="0,0,0,15"/>
+
+                <CollectionView ItemsSource="{Binding Ratings}"
+                                VerticalOptions="Center">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate x:DataType="model:TechniciansRating">
+
+                            <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+                                   Margin="4">
+
+                                <HorizontalStackLayout HorizontalOptions="Center">
+
+                                    <Label Text="{Binding ratingType.name}"
+                                           FontSize="17"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Text=" : "
+                                           FontSize="17"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Text="{Binding value}"
+                                           FontSize="17"
+                                           FontAttributes="Bold"/>
+
+                                    <Label Text=" / 10"
+                                           FontSize="17"
+                                           FontAttributes="Bold"/>
+
+                                </HorizontalStackLayout>
+
+                            </Frame>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+        <ActivityIndicator   IsEnabled="{Binding IsBesy}"
+                             IsRunning="{Binding IsBesy}"
+                             VerticalOptions="Center"
+                             Grid.RowSpan="2"
+                             WidthRequest="100"
+                             Color="{StaticResource Primary}"
+                             HorizontalOptions="Center"/>
+        
+    </Grid>
+    
+</ContentPage>

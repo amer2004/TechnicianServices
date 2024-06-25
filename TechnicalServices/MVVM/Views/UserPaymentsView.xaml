@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.UserPaymentsView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             xmlns:model="clr-namespace:TechnicalServices.Models.User"
+             x:DataType="viewmodel:UserPaymentsViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <RefreshView Command="{Binding GetUserPaymentsCommand}"
+                 IsRefreshing="{Binding IsRefreshing}">
+
+        <CollectionView ItemsSource="{Binding Payments}">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate x:DataType="model:UserPayment">
+
+                    <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}">
+
+                        <Grid Margin="10" 
+                              ColumnSpacing="4">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Static lang:AppResources.Date}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   FontSize="15"/>
+                                
+                            <Label Text="{Binding dateTime}"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   FontAttributes="Bold"
+                                   FontSize="15"/>
+
+                            <Label Text="{Static lang:AppResources.Ammount}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontSize="15"/>
+                                
+                            <HorizontalStackLayout Grid.Row="1"
+                                                    Grid.Column="1">
+                                
+                                <Label Text="{Binding paymentAmount}"
+                                       FontAttributes="Bold"
+                                       FontSize="15"/>
+                                    
+                                <Label Text=" SP"
+                                       FontAttributes="Bold"
+                                       FontSize="15"/>
+
+                            </HorizontalStackLayout>
+
+                            <Label Text="{Static lang:AppResources.PaymentType}"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   FontSize="15"/>
+
+                            <Label Text="{Binding paymentType.name}"
+                                   FontAttributes="Bold"
+                                   FontSize="15"
+                                   Grid.Column="1"
+                                   Grid.Row="2"/>
+
+                        </Grid>
+                        
+                    </Frame>
+                    
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        
+    </RefreshView>
+   
+</ContentPage>

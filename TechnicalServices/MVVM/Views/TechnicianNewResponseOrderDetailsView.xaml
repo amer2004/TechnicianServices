@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicalServices.MVVM.Views.TechnicianNewResponseOrderDetailsView"
+             xmlns:lang="clr-namespace:TechnicalServices.Resources.Languages"
+             xmlns:model="clr-namespace:TechnicalServices.Models"
+             xmlns:viewmodel="clr-namespace:TechnicalServices.MVVM.ViewModel"
+             NavigationPage.HasNavigationBar="False"
+             x:DataType="viewmodel:TechnicianNewResponseOrderDetailsViewModel"
+             IsEnabled="{Binding IsNotBesy}">
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+
+        </Grid.RowDefinitions>
+
+        <Frame BackgroundColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}"
+               Margin="2,10"
+               Grid.Row="0">
+
+            <VerticalStackLayout>
+
+                <Image Source="purchase_order.png"
+                       WidthRequest="100"
+                       HeightRequest="100"/>
+
+                <Grid Margin="10" 
+                      RowSpacing="10">
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{Static lang:AppResources.OrderNumber}"
+                           FontSize="17"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Order.orderNumber}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Service}"
+                           FontSize="17"
+                           Grid.Row="1"/>
+
+                    <Label Text="{Binding Order.ExtendService.name}"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"/>
+
+                    <Label Text="{Static lang:AppResources.OrderStatus}"
+                           FontSize="17"
+                           Grid.Row="2"/>
+
+                    <Label Text="{Binding Order.Status.name}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Description}"
+                           FontSize="17"
+                           Grid.Row="3"/>
+
+                    <Label Text="{Binding Order.description}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="3"
+                           Grid.Column="1"/>
+
+                    <Label Text="{Static lang:AppResources.Date}"
+                           FontSize="17"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+
+                    <Label Text="{Binding Order.date}"
+                           FontAttributes="Bold"
+                           FontSize="17"
+                           Margin="4,0"
+                           Grid.Row="4"
+                           Grid.Column="1"/>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </Frame>
+        
+        <Button Text="{Static lang:AppResources.AddResponce}"
+                Grid.Row="1"
+                FontAttributes="Bold"
+                Command="{Binding GoToAddOrderResponceCommand}"
+                Margin="0,10"/>
+        
+    </Grid>
+    
+</ContentPage>
