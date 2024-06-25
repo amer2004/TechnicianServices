@@ -8,4 +8,4 @@ Fadi Raihan
 Marah al maamolee
 
 this project use .Net Maui and .Net8
-the project about a mobaile application to order technician services
+the project about a mobile application to order technician services
